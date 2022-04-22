@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Productos</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="./../CSS/productos.css" />
+		<link rel="stylesheet" href="./../CSS/bootstrap.min.css" />
+
+		<!-- DataTable -->
+		<link rel="stylesheet" type="text/css" href="./../Assets/datatables/datatables.min.css"/>
+ 		<link rel="stylesheet" type="text/css" href="./../Assets/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css"/>
+
+		<!-- Fontawesome -->
+		<script src="https://kit.fontawesome.com/1382257960.js" crossorigin="anonymous"></script>
+
+		<!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<!-- Barra de navegacion -->
+		<div class="navbar">
+			<div class="navbar-logo">
+				<img src="./../Assets/logo2-removebg-preview.png" class="logo" />
+				<div class="form-group mx-sm-4 pb-2 boton">
+					<a href="http://localhost:3000/logout" style=" background: #FF0000; border-radius: 5px; color: white; display: block; font-weight: bold; padding: 20px; text-align: center; text-decoration: none; width: 200px;"> Logout </a>
+				</div>
+			</div>
+
+			<div class="navbar-linea"></div>
+
+			<div class="navbar-links">
+				<ul>
+					<li><a href="../HTML/producto.html"> <i class="fa-regular fa-paste"></i> Producto </a></li>
+					<li><a class="navbar-links-activo" href="../HTML/auxiliar.html"> <i class="fa-solid fa-user-large"></i> Auxiliar </a></li>
+					<li><a href="../HTML/cajero.html"> <i class="fa-solid fa-user-large"></i> Cajero </a></li>
+					<li><a href="../HTML/MFijo.html"> <i class="fa-regular fa-paste"></i> Menu fijo </a></li>
+					<li><a href="../HTML/MRotativo.html"> <i class="fa-regular fa-paste"></i> Menu rotativo </a></li>
+					<li><a href="../HTML/VerMenu.html"> <i class="fa-solid fa-eye"></i> Visualizar Menu </a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Contenido tabla -->
+		<section class="full-box dashboard-contentPage" style="background-color: #024731; padding-top: 10px;">
+			<nav class="full-box dashboard-Navbar" style="background-color: #16817A;">
+				<ul class="full-box list-unstyled text-right">
+					<li class="pull-left">
+						<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
+					</li>
+					<li>
+						<a href="#!" class="btn-modal-help">
+							<i class="zmdi zmdi-help-outline"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-9">
+						<button id="add_button" type="button" class="btn " data-toggle="modal" data-target="#userModal"><i class="material-icons">library_add</i></button>
+						<a style="color: white; font-size: 2vh; padding-left: 20px;"> Auxiliares </a>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid" style="padding-top: 30px;">
+				<div class="container caja" style="background-color: #FEBE10; padding: 40px 70px 10px 70px;">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="table-responsive">
+								<table id="user_data" class="table table-striped table-bordered table-condensed" style="width:100%; background-color: white;">
+									<thead class="text-center">
+										<tr>
+											<th width="20%"> Nombre </th>
+                                            <th width="20%"> Apellidos </th>
+											<th width="35%"> Correo </th>
+                                            <th width="15%"> Telefono </th>
+											<th width="10%"> Acciones </th>
+										</tr>
+									</thead>
+									<!-- <tbody>
+										<tr role="row" class="odd"><td><img src="./../Test/774934376.jpg" class="img-thumbnail" width="50" height="35"></td><td>Sandwich de pavo</td><td>Sandwich de jamon de pavo con lechuga romana y tomatillos</td><td>Sandwiches</td><td>$35.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="20" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="20" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/470468821.jpg" class="img-thumbnail" width="50" height="35"></td><td>Sandwich de miga triple</td><td>Sandwich de tres pisos de jamon, queso, lechuga y tomate</td><td>Sandwiches</td><td>$25.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="22" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="22" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/483426447.jpg" class="img-thumbnail" width="50" height="35"></td><td>Sandwich croque madame</td><td></td><td>Sandwiches</td><td>$40.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="21" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="21" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/1701334473.jpg" class="img-thumbnail" width="50" height="35"></td><td>Pastel de las 3 leches con durazno</td><td>Rebanada de pastel de 3 leches con durazno y frutas encima</td><td>Extras</td><td>$50.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="29" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="29" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td><td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/1209440685.jpg" class="img-thumbnail" width="50" height="35"></td><td>Pancakes</td><td>Pancakes acompañados de fresa, platano y crema</td><td>Desayunos</td><td>$50.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="17" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="17" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/1297145563.jpg" class="img-thumbnail" width="50" height="35"></td><td>Limonada mineral</td><td>Limonada mineral con pequeños trozos de limon y hielo</td><td>Bebidas</td><td>$15.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="27" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="27" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/190163755.jpg" class="img-thumbnail" width="50" height="35"></td><td>horchata de platano y amaranto</td><td>Cremosa horchata de plátano y amaranto, sin lácteos ni azúcar</td><td>Bebidas</td><td>$20.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="28" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="28" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/1021875869.jpg" class="img-thumbnail" width="50" height="35"></td><td>Chilaquiles</td><td>Chilaquiles servidos con salsa roja, cebolla y un huevo encima</td><td>Desayunos</td><td>$75.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="18" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="18" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td><td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/2115052695.jpg" class="img-thumbnail" width="50" height="35"></td><td>Burritos de pollo con guacamole</td><td>Burritos de pollo acompañados de una porcion de guacamole</td><td>Burritos</td><td>$40.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="26" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="26" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/1591361641.jpg" class="img-thumbnail" width="50" height="35"></td><td>Burrito de pollo con arroz</td><td>Burrito lleno de pollo, arroz, lechuga y tomate</td><td>Burritos</td><td>$15.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="25" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="25" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/414191712.jpg" class="img-thumbnail" width="50" height="35"></td><td>Burrito de carne picada</td><td>Burrito lleno de carne de res picada con salsa bandera</td><td>Burritos</td><td>$25.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="24" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="24" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="even"><td><img src="./../Test/1519235014.jpg" class="img-thumbnail" width="50" height="35"></td><td>Avena</td><td>Sopero lleno de avena con fresas y frambuesas bañadas en crema</td><td>Desayunos</td><td>$60.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="19" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="19" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+										<tr role="row" class="odd"><td><img src="./../Test/836718671.jpg" class="img-thumbnail" width="50" height="35"></td><td> Sandwich croque monsieur</td><td> Sandwich de jamon con queso con un huevo frito encima</td><td>Sandwiches</td><td>$40.00</td><td><div class="text-center"> <div class="btn-group"> <button type="button" name="update" id="23" class="btn btn-sm update"><i class="material-icons">edit</i></button><button type="button" name="delete" id="23" class="btn btn-sm delete"><i class="material-icons">delete</i></button> </div> </div></td></tr>
+									</tbody> -->
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Modal -->
+		<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+	
+					<form method="post" id="user_form" enctype="multipart/form-data">
+						<div class="modal-body" style="background-color: #b2b9b92a;">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label for="" class="col-form-label">Nombre: </label>
+										<input type="text" class="form-control" name="first_name" id="first_name" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label for="" class="col-form-label">Apellido: </label>
+										<input type="text" class="form-control" name="last_name" id="last_name" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label for="" class="col-form-label">Correo: </label>
+										<input type="nomber" class="form-control" name="precio" id="precio" required>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="">
+										<label for="" class="col-form-label">Telefono: </label>
+										<input type="nomber" class="form-control" name="precio" id="precio" required>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<input type="hidden" name="user_id" id="user_id" />
+							<input type="hidden" name="operation" id="operation" />
+							<button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+							<button type="submit" name="action" id="action" class="btn btn-dark" value="Add">Guardar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="./../JavaScript/jquery-3.1.1.min.js"></script> <!--  jquery version 3.1.1 -->
+		<script src="./../JavaScript/sweetalert2.min.js"></script> <!--  SweetAlert2 para decoracion de las alertas del navegador -->
+		<script src="./../JavaScript/bootstrap.min.js"></script> <!--  Bootstrap 4.0 -->
+		<script src="./../JavaScript/material.min.js"></script> <!--  Material Design Bootstrap -->
+		<script src="./../JavaScript/ripples.min.js"></script> <!--  Ripples, efectos para los botones -->
+		<script src="./../JavaScript/jquery.mCustomScrollbar.concat.min.js"></script> <!--  Scrollbar -->
+		<script src="./../JavaScript/main.js"></script> <!--  Script principal -->
+		<script src="./../Assets/popper/popper.min.js"></script> <!--  Scripts de popper -->
+		<script type="text/JavaScript" src="./../Assets/datatables/datatables.min.js"></script> <!--  Scripts de datatables --> 
+
+		<script>
+			$(document).on('click', '.update', function(){
+				//console.log(data);
+				$('#userModal').modal('show');
+				$('.modal-title').text("Editar producto");
+				$('#action').val("Edit");
+				$('#operation').val("Edit");
+			});
+		
+			$(document).on('click', '.delete', function(){
+				if(confirm("¿Seguro que desea eliminar este producto?"))
+				{
+					location.reload();
+				}
+			});	
+		</script>
+
+	</body>
+</html>
